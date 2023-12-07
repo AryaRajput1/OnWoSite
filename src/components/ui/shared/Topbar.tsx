@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import {useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { LogOut } from 'lucide-react';
 import { Button } from '../button'
@@ -22,7 +22,7 @@ const Topbar = () => {
       <h2 className="inline text-xl font-bold">OnWo</h2>
       </Link>
       <div className='flex gap-4'>
-        <Button variant="ghost" className='shad-button_ghost' onClick={signOut}>
+        <Button variant="ghost" className='shad-button_ghost' onClick={()=>signOut()}>
         <LogOut />
         </Button>
         <Link to={`/profile/${user.id}`} className='flex-center gap-3'>

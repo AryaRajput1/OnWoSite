@@ -4,7 +4,6 @@ import { useUserContext, INITIAL_USER } from "@/context/AuthContext";
 import { useSignOutAccount } from "@/lib/react-query/queriesAndMutations";
 import Loader from "./Loader";
 import { LogOut } from 'lucide-react';
-import { INavLink } from "@/types";
 import {sidebarLinks} from "../../../constant"
 
 const LeftSidebar = () => {
@@ -50,7 +49,7 @@ const LeftSidebar = () => {
         )}
 
         <ul className="flex flex-col gap-6">
-          {sidebarLinks.map((link: INavLink) => {
+          {sidebarLinks.map((link) => {
             const isActive = pathname === link.route;
 
             return (

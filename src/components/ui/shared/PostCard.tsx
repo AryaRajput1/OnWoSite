@@ -82,7 +82,7 @@ function PostCard({ post }: PostCardProps) {
 
                 className="absolute top-[50%] left-[40%] duration-400"
             />}
-            <PostStats post={post} userId={user.$id} isLiked={isLiked} />
+            <PostStats post={post} userId={user.id} isLiked={isLiked} />
         </div>
     )
 }

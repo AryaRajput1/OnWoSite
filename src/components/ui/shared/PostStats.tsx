@@ -1,9 +1,9 @@
 import { checkIsLiked } from "@/lib/utils";
 import { Models } from "appwrite";
-import { useLocation } from "react-router-dom";
-import {useState,useEffect} from 'react';
-import { useDeleteSavedPost, useLikePost, useSavePost } from "@/lib/react-query/queriesAndMutations";
-import { useUserContext } from "@/context/AuthContext";
+// import { useLocation } from "react-router-dom";
+import {useState} from 'react';
+import {  useLikePost } from "@/lib/react-query/queriesAndMutations";
+// import { useUserContext } from "@/context/AuthContext";
 
 type PostStatsProps = {
     post: Models.Document;
@@ -12,25 +12,26 @@ type PostStatsProps = {
   };
 
 function PostStats({post,userId,isLiked}:PostStatsProps) {
-    const location = useLocation();
+    // const location = useLocation();
     const likesList = post.likes.map((user: Models.Document) => user.$id);
   
     const [likes, setLikes] = useState<string[]>(likesList);
-    const [isSaved, setIsSaved] = useState(false);
+    // const [isSaved, setIsSaved] = useState(false);
   
     const { mutate: likePost } = useLikePost();
-    const { mutate: savePost } = useSavePost();
-    const { mutate: deleteSavePost } = useDeleteSavedPost();
+    // const { mutate: savePost } = useSavePost();
+    // const { mutate: deleteSavePost } = useDeleteSavedPost();
   
-    const { data: currentUser } = useUserContext();
+    // const { user: currentUser } = useUserContext();
   
-    const savedPostRecord = currentUser?.save.find(
-      (record: Models.Document) => record.post.$id === post.$id
-    );
+    // const savedPostRecord = currentUser?.save.find(
+    //   (record: Models.Document) => record.post.$id === post.$id
+    // );
   
-    useEffect(() => {
-      setIsSaved(!!savedPostRecord);
-    }, [currentUser]);
+    // useEffect(() => {
+    //   isSaved;
+    //   setIsSaved(!!savedPostRecord);
+    // }, [currentUser]);
   
     const handleLikePost = (
       e: React.MouseEvent<HTMLImageElement, MouseEvent>
@@ -50,19 +51,19 @@ function PostStats({post,userId,isLiked}:PostStatsProps) {
       likePost({ postId: post.$id, likesArray });
     };
 
-    const handleSavePost = (
-        e: React.MouseEvent<HTMLImageElement, MouseEvent>
-      ) => {
-        e.stopPropagation();
+    // const handleSavePost = (
+    //     e: React.MouseEvent<HTMLImageElement, MouseEvent>
+    //   ) => {
+    //     e.stopPropagation();
     
-        if (savedPostRecord) {
-          setIsSaved(false);
-          return deleteSavePost(savedPostRecord.$id);
-        }
+    //     if (savedPostRecord) {
+    //       setIsSaved(false);
+    //       return deleteSavePost(savedPostRecord.$id);
+    //     }
     
-        savePost({ userId: userId, postId: post.$id });
-        setIsSaved(true);
-      };
+    //     savePost({ userId: userId, postId: post.$id });
+    //     setIsSaved(true);
+    //   };
   return (
     <div className="flex justify-between items-center z-20">
         <div className="flex gap-2 mr-5">
