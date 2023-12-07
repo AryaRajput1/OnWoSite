@@ -1,9 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 
 import { bottombarLinks } from "../../../constant"
+import { DynamicIcon } from "./DynamicIcon";
+import {icons } from 'lucide-react'
 
 const Bottombar = () => {
   const { pathname } = useLocation();
+  
 
   return (
     <section className="bottom-bar">
@@ -23,6 +26,7 @@ const Bottombar = () => {
               height={16}
               className={`${isActive && "invert-white"}`}
             /> */}
+            <DynamicIcon name={link.imgURL as keyof typeof icons}/>
 
             <p className="tiny-medium text-light-2">{link.label}</p>
           </Link>

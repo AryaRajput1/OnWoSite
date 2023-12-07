@@ -3,8 +3,10 @@ import { Button } from "@/components/ui/button";
 import { useUserContext, INITIAL_USER } from "@/context/AuthContext";
 import { useSignOutAccount } from "@/lib/react-query/queriesAndMutations";
 import Loader from "./Loader";
-import { LogOut } from 'lucide-react';
+import { LogOut,icons } from 'lucide-react';
 import {sidebarLinks} from "../../../constant"
+import { DynamicIcon } from "./DynamicIcon";
+
 
 const LeftSidebar = () => {
   const navigate = useNavigate();
@@ -68,6 +70,7 @@ const LeftSidebar = () => {
                       isActive && "invert-white"
                     }`}
                   /> */}
+                  <DynamicIcon name={link.imgURL as keyof typeof icons}/>
                   {link.label}
                 </NavLink>
               </li>

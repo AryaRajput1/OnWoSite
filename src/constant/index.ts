@@ -1,28 +1,26 @@
-import { Home } from 'lucide-react';
-
 export const sidebarLinks = [
     {
-      imgURL: Home,
+      imgURL: 'Home',
       route: "/",
       label: "Home",
     },
     {
-      imgURL: "/assets/icons/wallpaper.svg",
+      imgURL: "Globe2",
       route: "/explore",
       label: "Explore",
     },
     {
-      imgURL: "/assets/icons/people.svg",
+      imgURL: "Users",
       route: "/all-users",
       label: "People",
     },
     {
-      imgURL: "/assets/icons/bookmark.svg",
+      imgURL: "Bookmark",
       route: "/saved",
       label: "Saved",
     },
     {
-      imgURL: "/assets/icons/gallery-add.svg",
+      imgURL: "FileEdit",
       route: "/create-post",
       label: "Create Post",
     },
@@ -30,22 +28,22 @@ export const sidebarLinks = [
   
   export const bottombarLinks = [
     {
-      imgURL: "/assets/icons/home.svg",
+      imgURL: "Home",
       route: "/",
       label: "Home",
     },
     {
-      imgURL: "/assets/icons/wallpaper.svg",
+      imgURL: "Globe2",
       route: "/explore",
       label: "Explore",
     },
     {
-      imgURL: "/assets/icons/bookmark.svg",
+      imgURL: "Bookmark",
       route: "/saved",
       label: "Saved",
     },
     {
-      imgURL: "/assets/icons/gallery-add.svg",
+      imgURL: "FileEdit",
       route: "/create-post",
       label: "Create",
     },
