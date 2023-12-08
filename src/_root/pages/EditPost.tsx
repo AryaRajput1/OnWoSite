@@ -1,8 +1,29 @@
+import PostForm from "@/components/forms/PostForm";
+import Loader from "@/components/ui/shared/Loader";
+import { useGetPostById } from "@/lib/react-query/queriesAndMutations";
+import { PlusSquare } from 'lucide-react';
+import { useParams } from "react-router-dom";
 
-function EditPost() {
+const EditPost = () => {
+  const {id}= useParams();
+  const {data:post,isPending} =useGetPostById(id||'');
+
+  if(isPending){
+    return <Loader/>
+  }
+  
   return (
-    <div>EditPost</div>
-  )
-}
+    <div className="flex flex-1">
+      <div className="common-container">
+        <div className="max-w-5xl flex-start gap-3 justify-start w-full">
+        <PlusSquare />
+          <h2 className="h3-bold md:h2-bold text-left w-full">Edit Post</h2>
+        </div>
 
-export default EditPost
+        <PostForm action="Update" post={post} />
+      </div>
+    </div>
+  );
+};
+
+export default EditPost;
